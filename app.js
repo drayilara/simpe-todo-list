@@ -3,7 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
-const req = require('express/lib/request');
+const dateModule = require(__dirname + '/date.js');
 
 const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
@@ -15,11 +15,8 @@ const PORT = 3000;
 let items = [];
 let workItems = [];
 
-
-
 app.get('/', (req,res) => {
-    let options = {weekday:'long', day: 'numeric', month: 'long'};
-    let day = new Date().toLocaleDateString('en-US', options);
+    let day = dateModule.getDay();
     res.render(__dirname + '/views/list', {day: day, items: items});
 });
 
