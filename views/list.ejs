@@ -4,15 +4,18 @@
     
         <%  items.forEach(item => {  %>
             <div class="item">
-            <input type="checkbox">
-            <p><%= item %></p>
+            <form id='delete' action="/delete" method="post">
+            <input type="hidden" name='router' value=<%= title %>>
+            <input type="checkbox" name="item" value= '<%= item.name %>' onClick="this.form.submit();">
+            </form>
+            <p><%= item.name %></p>
             </div>
         <%  })  %>     
      
 
     <form action="/" method="post" class="item">
         <input type="text" name="listItem" placeholder="Enter a task">
-        <input type="hidden" name='router' value=<%= day %>>
+        <input type="hidden" name='router' value=<%= title %>>
         <button>+</button>
     </form>
     

@@ -6,8 +6,8 @@ function getDay(){
     return day;
 }
 
-exports = {
-    getDay : getDay
+module.exports = {
+    getDay
 };
 
 
